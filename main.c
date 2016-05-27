@@ -36,7 +36,7 @@ SDL_Surface *choosetile(int ltype)
   switch (ltype)
     {
     case 0:
-      return sur = IMG_Load("images/default/tiles/grass.png");
+      return sur = IMG_Load("graphics/default/tiles/grass.png");
       break;
     }
 }
