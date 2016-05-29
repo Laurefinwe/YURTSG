@@ -39,7 +39,10 @@ SDL_Surface *choosetile(int ltype)
   switch (ltype)
     {
     case 0:
-      return sur = IMG_Load("graphics/tiles/grass.png");
+      return sur = IMG_Load("graphics/tiles/grass.bmp");
+      break;
+    case 1:
+      return sur = IMG_Load("graphics/tiles/desert.bmp");
       break;
     }
 }
@@ -78,12 +81,12 @@ void loadmap() //ERR!
 {
   FILE *fp;
 
-  fp = fopen("map", "r");
+  fp = fopen("maps/test", "r");
 
   int i = 0;
   
   fscanf(fp, "%d;", tile_count);
-  tiles = malloc(tile_count * sizeof (tiles));
+  tiles = malloc(tile_count * sizeof (tile));
 
   fscanf(fp, "%d;%d;", tile_rows, tile_cols);
   fscanf(fp, "%d;%d;", tile_width, tile_height);
