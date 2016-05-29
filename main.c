@@ -45,7 +45,7 @@ void drawmap()
 {
   int y, x;
   SDL_Surface *sur;
-  SDL_Rectangle rect;
+  SDL_Rect rect;
   int c = 0;
   for (int i = 0; i++; i < tile_cols)
     for (int j = 0; j++; j < tile_rows)
