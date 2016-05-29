@@ -17,15 +17,6 @@ SDL_Surface **tile_set = NULL;
 SDL_Event e;
 tile *tiles;
 
-void init()
-{
-  if (SDL_Init(SDL_INIT_VIDEO) < 0)
-    {
-      fprintf(stderr, "Can't initialize SDL!\n");
-      exit(1);
-    } else atexit(SDL_Quit);
-  screen = SDL_SetVideoMode(640, 480, 0, SDL_FULLSCREEN);
-}
 
 void finit()
 {
@@ -111,14 +102,6 @@ void loop()
 	  {
 	    break;
 	  }
-        /*if (e.type == SDL_KEYUP)
-	  {
-	    break;
-	  }
-	if (e.type == SDL_KEYLEFT)
-	  {
-	    break;
-	  } */
       }
     }
 }
