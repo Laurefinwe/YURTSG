@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <SDL/SDL.h>
+#include <SDL/SDL_image.h>
 //#define TILE_COUNT 50
 
 struct tile {
