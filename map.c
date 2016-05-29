@@ -1,3 +1,5 @@
+#include "map.h"
+
 void drawmap()
 {
   int y, x;

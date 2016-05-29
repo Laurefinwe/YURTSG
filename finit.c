@@ -1,3 +1,5 @@
+#include "finit.h"
+
 void finit()
 {
   SDL_FreeSurface(screen);
