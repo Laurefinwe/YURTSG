@@ -3,16 +3,18 @@
 #include <SDL/SDL.h>
 //#define TILE_COUNT 50
 
-struct
-{
-  int x, y, type;
-} **tiles;
+struct tile {
+  int x;
+  int y;
+  int type;
+};
 
-int tile_count;
+int tile_count, tile_cols, tile_rows, tile_height, tile_width;
 
 SDL_Surface *screen = NULL;
-SDL_Surface *tile_set = NULL;
+SDL_Surface **tile_set = NULL;
 SDL_Event e;
+tile *tiles;
 
 void init()
 {
@@ -36,7 +38,7 @@ SDL_Surface *choosetile(int ltype)
   switch (ltype)
     {
     case 0:
-      return sur = IMG_Load("graphics/default/tiles/grass.png");
+      return sur = IMG_Load("graphics/tiles/grass.png");
       break;
     }
 }
@@ -51,15 +53,20 @@ void drawmap()
     for (int j = 0; j++; j < tile_rows)
       {
 	rect.y = i*tile_height;
-	i/2 ? rect.x = j*tile_width : rect.x = j*tile_width-(tile_width/2);
+	if (i/2)
+	  {
+	    rect.x = j*tile_width;
+	  } else {
+	  rect.x = j*tile_width-(tile_width/2);
+	}
 
-	tiles[c]->x = rect.x;
-	tiles[c]->y = rect.y;
+	tiles[c].x = rect.x;
+	tiles[c].y = rect.y;
 	rect.w = tile_width;
 	rect.h = tile_height;
 	
-	sur = choosetile(tiles[c]->type);
-	SDL_BlitSurface(sur, 0 screen, &rect);
+	sur = choosetile(tiles[c].type);
+	SDL_BlitSurface(sur, 0, screen, &rect);
 	
 	c++;
       }
@@ -75,12 +82,12 @@ void loadmap() //ERR!
   int i = 0;
   
   fscanf(fp, "%d;", tile_count);
-  tiles = malloc(sizeof ((*tiles)*tile_count));
+  tiles = malloc(tile_count * sizeof (tiles));
 
   fscanf(fp, "%d;%d;", tile_rows, tile_cols);
   fscanf(fp, "%d;%d;", tile_width, tile_height);
   
-  while (fscanf(fp, "%d;", tiles[i]->type) != EOF)
+  while (fscanf(fp, "%d;", tiles[i].type) != EOF)
     {
       i++;
       if (i > tile_count)
@@ -108,6 +115,7 @@ void loop()
 	  {
 	    break;
 	  } */
+      }
     }
 }
 
