@@ -1,3 +1,5 @@
+#include "tile.h"
+
 SDL_Surface *choosetile(int ltype)
 {
   SDL_Surface *sur;
