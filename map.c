@@ -39,7 +39,7 @@ void loadmap()
   int i = 0;
   
   fscanf(fp, "%d;", tile_count);
-  tiles = malloc(tile_count * sizeof (tile));
+  tiles = malloc(tile_count * sizeof (struct tile));
 
   fscanf(fp, "%d;%d;", tile_rows, tile_cols);
   fscanf(fp, "%d;%d;", tile_width, tile_height);

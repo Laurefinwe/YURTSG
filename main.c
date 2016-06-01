@@ -1,9 +1,6 @@
-//#define TILE_COUNT 50
-
 #include "main.h"
 
-
-tile *tiles;
+struct tile *tiles;
 
 int main(int argc, char *argv[])
 {
