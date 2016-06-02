@@ -27,6 +27,7 @@ void drawmap()
 	
 	c++;
       }
+  SDL_FreeSurface(sur);
 }
 
 
@@ -50,4 +51,5 @@ void loadmap()
       if (i > tile_count)
 	break;
     }
+  free(fp);
 }

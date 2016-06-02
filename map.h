@@ -4,8 +4,8 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include "tile.h"
-#include "main.h"
 
+extern SDL_Surface *screen;
 extern struct tile *tiles;
 
 void drawmap();

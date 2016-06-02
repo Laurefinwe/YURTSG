@@ -6,7 +6,8 @@
 #include "loop.h"
 #include "finit.h"
 
+struct tile *tiles;
 SDL_Surface *screen = NULL;
-SDL_Surface **tile_set = NULL;
+//SDL_Surface **tile_set = NULL;
 
 #endif
