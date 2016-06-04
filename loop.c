@@ -12,6 +12,8 @@ void loop()
 	  {
 	    break;
 	  }
+	if (e.type == SDL_QUIT)
+	  break;
       }
     }
 }

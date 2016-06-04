@@ -11,7 +11,8 @@ SDL_Surface *choosetile(int ltype)
     case 1:
       return sur = IMG_Load("graphics/tiles/desert.bmp");
       break;
+    default:
+        SDL_FreeSurface(sur);
+	break;
     }
-
-  SDL_FreeSurface(sur);
 }

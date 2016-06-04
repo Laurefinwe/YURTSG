@@ -27,7 +27,7 @@ void drawmap()
 	
 	c++;
       }
-  SDL_FreeSurface(sur);
+  //  SDL_FreeSurface(sur);
 }
 
 
@@ -39,17 +39,13 @@ void loadmap()
 
   int i = 0;
   
-  fscanf(fp, "%d;", tile_count);
+  fscanf(fp, "%d;", &tile_count);
   tiles = malloc(tile_count * sizeof (struct tile));
-
-  fscanf(fp, "%d;%d;", tile_rows, tile_cols);
-  fscanf(fp, "%d;%d;", tile_width, tile_height);
+  //  tiles = malloc(5000);
+  fscanf(fp, "%d;%d;", &tile_rows, &tile_cols);
+  fscanf(fp, "%d;%d;", &tile_width, &tile_height);
   
-  while (fscanf(fp, "%d;", tiles[i].type) != EOF)
-    {
-      i++;
-      if (i > tile_count)
-	break;
-    }
+  while (fscanf(fp, "%d;", &tiles[i].type) != EOF && i <= tile_count)
+    i++;
   free(fp);
 }

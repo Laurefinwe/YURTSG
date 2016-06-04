@@ -8,6 +8,7 @@ void init()
       exit(1);
     } else atexit(SDL_Quit);
   screen = SDL_SetVideoMode(640, 480, 0, SDL_FULLSCREEN);
+  //screen = SDL_SetVideoMode(640, 480, 0, SDL_ANYFORMAT);
   loadmap();
   drawmap();
 }
