@@ -8,12 +8,8 @@ void loop()
 	{
 	  SDL_Flip(screen);
 	} else {
-	if (e.type == SDL_KEYDOWN)
-	  {
-	    break;
-	  }
 	if (e.type == SDL_QUIT)
-	  break;
+	break;
       }
     }
 }
