@@ -5,7 +5,7 @@ void drawmap()
   SDL_Surface *sur;
   SDL_Rect rect, r0;
   int c = 0;
-
+  
   r0.x = 0;
   r0.y = 0;
   r0.w = tile_width;
@@ -22,7 +22,7 @@ void drawmap()
 
 	  rect.y = i*tile_height;
 
-	  if ((i/2) != 0)
+	  if ((i/2) > 0)
 	    {
 	      rect.x = j*tile_width;
 	    } else {
