@@ -20,9 +20,9 @@ void drawmap()
 	  if (c == tile_count - 1)
 	    break;
 
-	  rect.y = i*tile_height;
+	  rect.y = i*(tile_height/2);
 
-	  if ((i/2) > 0)
+	  if (i%2)
 	    {
 	      rect.x = j*tile_width;
 	    } else {
@@ -41,15 +41,15 @@ void drawmap()
 	}
 }
 
-void loadmap()
+void loadmap(char *map_name)
 {
   FILE *fp;
 
-  fp = fopen("maps/test", "r");
+  fp = fopen(map_name, "r");
 
   fscanf(fp, "%d;", &tile_count);
-  //tiles = malloc(tile_count * sizeof (struct tile));
-  tiles = malloc(5000);
+  tiles = malloc(tile_count * sizeof (struct tile));
+  
   fscanf(fp, "%d;%d;", &tile_rows, &tile_cols);
   fscanf(fp, "%d;%d;", &tile_width, &tile_height);
   

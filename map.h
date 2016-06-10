@@ -9,7 +9,7 @@ extern SDL_Surface *screen;
 extern struct tile *tiles;
 
 void drawmap();
-void loadmap();
+void loadmap(char *map_name);
 
 int tile_count, tile_cols, tile_rows, tile_height, tile_width;
 

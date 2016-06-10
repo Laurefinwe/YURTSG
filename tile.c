@@ -9,11 +9,14 @@ SDL_Surface *choosetile(int ltype)
     {
     case 0:
       return sur = IMG_Load("graphics/tiles/grass.png");
-      SDL_SetColorKey(sur, SDL_TRUE, SDL_MapRGB(sur->format, 255, 0, 255));
       break;
+      
     case 1:
       return sur = IMG_Load("graphics/tiles/desert.png");
-      SDL_SetColorKey(sur, SDL_TRUE, SDL_MapRGB(sur->format, 255, 0, 255));
+      break;
+
+    case 2:
+      return sur = IMG_Load("graphics/tiles/water.png");
       break;
     }
   }

@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[])
 {
-  init();
+  init(argv[1]);
 
   loop();
 
