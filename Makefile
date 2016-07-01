@@ -1,30 +1,15 @@
 CC = gcc
 
 CFLAGS = -c -std=gnu11
-LFLAGS = -lSDL -lSDL_image
+LDFLAGS = -lSDL -lSDL_image
+SOURCES = main.c loop.c init.c finit.c map.c tile.c
+OBJECTS = $(SOURCES:.c=.o)
+EXECUTABLE = exec
 
-all: exec
+all: $(SOURCES) $(EXECUTABLE)
 
-exec: main.o init.o finit.o loop.o map.o tile.o
-	$(CC) $(LFLAGS) main.o init.o finit.o loop.o map.o tile.o -o exec
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
 
-main.o: main.c
-	$(CC) $(CFLAGS) main.c
-
-init.o: init.c
-	$(CC) $(CFLAGS) init.c
-
-finit.o: finit.c
-	$(CC) $(CFLAGS) finit.c
-
-tile.o: tile.c
-	$(CC) $(CFLAGS) tile.c
-
-map.o: map.c
-	$(CC) $(CFLAGS) map.c
-
-loop.o: loop.c
-	$(CC) $(CFLAGS) loop.c
-
-clean:
-	rm *.o exec
+.c.o:
+	$(CC) $(CFLAGS) $< -o $@
