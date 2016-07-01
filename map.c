@@ -1,6 +1,6 @@
 #include "map.h"
 
-void drawmap()
+void drawmap(int x, int y)
 {
   SDL_Surface *sur;
   SDL_Rect rect, r0;
@@ -13,6 +13,8 @@ void drawmap()
 
   rect.w = tile_width;
   rect.h = tile_height;
+
+  SDL_FillRect(screen, NULL, 0x000000);
   
   for (int i = 0; i < tile_cols; i++)
       for (int j = 0; j < tile_rows; j++)
@@ -20,13 +22,13 @@ void drawmap()
 	  if (c == tile_count - 1)
 	    break;
 
-	  rect.y = i*(tile_height/2);
+	  rect.y = (i*(tile_height/2)) + y;
 
 	  if (i%2)
 	    {
-	      rect.x = j*tile_width;
+	      rect.x = (j*tile_width) + x;
 	    } else {
-	    rect.x = j*tile_width-(tile_width/2);
+	    rect.x = (j*tile_width-(tile_width/2)) + x;
 	  }
 
 	  tiles[c].x = rect.x;
@@ -35,8 +37,6 @@ void drawmap()
 	  sur = choosetile(tiles[c].type);
 	
 	  SDL_BlitSurface(sur, &r0, screen, &rect);
-
-	  SDL_Flip(screen);
 	  c++;
 	}
 }
