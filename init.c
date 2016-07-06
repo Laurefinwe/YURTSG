@@ -2,6 +2,7 @@
 
 void init(char *map_name)
 {
+  
   if (map_name == NULL)
     exit(1);
   
@@ -20,8 +21,7 @@ void init(char *map_name)
   if (fullscreen)
     flags |= SDL_FULLSCREEN; */
   
-  screen = SDL_SetVideoMode(960, 720, 0, SDL_FULLSCREEN | SDL_DOUBLEBUF | SDL_HWSURFACE);
-  //screen = SDL_SetVideoMode(960, 720, 0, SDL_ANYFORMAT);
+  screen = SDL_SetVideoMode(1280, 800, 0, SDL_FULLSCREEN | SDL_DOUBLEBUF);
   //atexit(SDL_FreeSurfacescreen);
   
   loadmap(map_name);

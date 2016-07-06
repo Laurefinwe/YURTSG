@@ -5,9 +5,11 @@
 #include "init.h"
 #include "loop.h"
 #include "finit.h"
+#include "point.h"
 
 struct tile *tiles;
-SDL_Surface *screen = NULL;
+SDL_Surface *screen;
+
 //SDL_Surface **tile_set = NULL;
 
 #endif

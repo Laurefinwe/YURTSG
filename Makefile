@@ -1,8 +1,8 @@
 CC = gcc
 
-CFLAGS = -c -std=gnu11
+CFLAGS = -c -g -std=gnu11
 LDFLAGS = -lSDL -lSDL_image
-SOURCES = main.c loop.c init.c finit.c map.c tile.c
+SOURCES = main.c loop.c init.c finit.c map.c tile.c mouse.c
 OBJECTS = $(SOURCES:.c=.o)
 EXECUTABLE = exec
 
@@ -13,3 +13,6 @@ $(EXECUTABLE): $(OBJECTS)
 
 .c.o:
 	$(CC) $(CFLAGS) $< -o $@
+
+clear:
+	rm *.o
