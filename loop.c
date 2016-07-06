@@ -2,6 +2,7 @@
 
 void loop()
 {
+  mouse_pos = malloc(sizeof (struct point));
   map_iterator.x = map_iterator.y = 0;
   for (;;)
     {

@@ -9,6 +9,7 @@
 
 struct tile *tiles;
 SDL_Surface *screen;
+struct point *mouse_pos;
 
 //SDL_Surface **tile_set = NULL;
 

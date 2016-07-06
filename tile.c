@@ -1,11 +1,11 @@
 #include "tile.h"
 
-SDL_Surface *choosetile(int ltype)
+SDL_Surface *choosetile(int type)
 {
   SDL_Surface *sur;
   
 
-  switch (ltype)
+  switch (type)
     {
     case 0:
       return sur = IMG_Load("graphics/tiles/grass.png");
@@ -19,4 +19,6 @@ SDL_Surface *choosetile(int ltype)
       return sur = IMG_Load("graphics/tiles/water.png");
       break;
     }
-  }
+
+  SDL_FreeSurface(sur);
+}

@@ -39,6 +39,8 @@ void drawmap(int x, int y)
 	  SDL_BlitSurface(sur, &r0, screen, &rect);
 	  c++;
 	}
+  
+  SDL_FreeSurface(sur);
 }
 
 void loadmap(char *map_name)
