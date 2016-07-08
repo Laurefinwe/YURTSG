@@ -21,16 +21,16 @@ void loop()
 	      switch (e.key.keysym.sym)
 		{
 		case SDLK_UP:
-		  drawmap(map_iterator.x, map_iterator.y -= 25);
-		  break;
-		case SDLK_DOWN:
 		  drawmap(map_iterator.x, map_iterator.y += 25);
 		  break;
+		case SDLK_DOWN:
+		  drawmap(map_iterator.x, map_iterator.y -= 25);
+		  break;
 		case SDLK_RIGHT:
-		  drawmap(map_iterator.x += 25, map_iterator.y);
+		  drawmap(map_iterator.x -= 25, map_iterator.y);
 		  break;
 		case SDLK_LEFT:
-		  drawmap(map_iterator.x -= 25, map_iterator.y);
+		  drawmap(map_iterator.x += 25, map_iterator.y);
 		  break;
 		case SDLK_ESCAPE:
 		  exit(1);

@@ -2,17 +2,14 @@
 
 void drawmap(int x, int y)
 {
-  SDL_Surface *sur;
+  SDL_Surface *sur = NULL;
   SDL_Rect rect, r0;
   int c = 0;
   
   r0.x = 0;
   r0.y = 0;
-  r0.w = tile_width;
-  r0.h = tile_height;
-
-  rect.w = tile_width;
-  rect.h = tile_height;
+  r0.w = rect.w = tile_width;
+  r0.h = rect.h = tile_height;
 
   SDL_FillRect(screen, NULL, 0x000000);
   
@@ -35,7 +32,7 @@ void drawmap(int x, int y)
 	  tiles[c].y = rect.y;
 		
 	  sur = choosetile(tiles[c].type);
-	
+	  
 	  SDL_BlitSurface(sur, &r0, screen, &rect);
 	  c++;
 	}
