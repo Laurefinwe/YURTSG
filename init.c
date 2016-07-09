@@ -3,7 +3,7 @@
 void loadResolution(struct point *resolution)
 {
   FILE *fp;
-  const char *path = "/etc/YURTSG/config";
+  const char *path = "config/config";
 
   if ((fp = fopen(path, "rw")) != NULL)
     {
@@ -13,11 +13,10 @@ void loadResolution(struct point *resolution)
     {
       if ((fp = fopen(path, "w+")) != NULL)
 	{
-	  system("mkdir /etc/YURTSG");
 	  resolution->x = resolution->y = 0;
 	  chooseResolution(resolution);
 	  fprintf(fp, "resolution: %dx%d\n", resolution->x, resolution->y);
-	} else printf("Error while trying to read/write to %s. Try again as root/admin\n", path);
+	} else printf("Error while trying to read/write to %s\n", path);
     }
 }
 

@@ -36,22 +36,19 @@ SDL_Surface *chooseMenuImage(struct point *resolution)
 void chooseResolution(struct point *resolution)
 {
   int quit = 0;
-  SDL_Rect r0, *rect;
-  SDL_Surface *sur[4];
+  SDL_Rect r0, rect[4];
+  SDL_Surface *sur[4] = {NULL, NULL, NULL, NULL};
   SDL_Event e;
   
-  //sur = malloc(sizeof (SDL_Surface **) * 4);
-
-  rect = malloc(sizeof (SDL_Rect) * 4);
   r0.x = r0.y = 0;
   r0.w = rect[0].w = rect[1].w = rect[2].w = rect[3].w = 100;
   r0.h = rect[0].h = rect[1].h = rect[2].h = rect[3].h = 33;
   rect[0].y = rect[1].y = rect[2].y = rect[3].y = 10;
-
-  sur[0] = IMG_Load("graphics/menu/resolution_button1440x1080");
-  sur[1] = IMG_Load("graphics/menu/resolution_button1280x800");
-  sur[2] = IMG_Load("graphics/menu/resolution_button1024x768");
-  sur[3] = IMG_Load("graphics/menu/resolution_button640x480");
+  
+  sur[0] = IMG_Load("graphics/menu/resolution_button1440x1080.png");
+  sur[1] = IMG_Load("graphics/menu/resolution_button1280x800.png");
+  sur[2] = IMG_Load("graphics/menu/resolution_button1024x768.png");
+  sur[3] = IMG_Load("graphics/menu/resolution_button640x480.png");
 
   for (int i = 0; i < 4; i++)
     {
