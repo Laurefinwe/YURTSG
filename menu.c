@@ -111,16 +111,16 @@ void chooseResolution(struct point *resolution)
     }
 }
 
-void drawMenu(struct point *resolution)
+/*void drawMenu(struct point *resolution)
 {
   SDL_Surface *sur;
   
   sur = chooseMenuImage(resolution);
 
   chooseMenu(2);
-}
+  }*/
 
-void chooseMenu(int menu)
+/*void chooseMenu(int menu)
 {
     switch (menu)
     {
@@ -134,9 +134,4 @@ void chooseMenu(int menu)
       mainMenu();
       break;
     }
-}
-
-void mainMenu()
-{
-  SDL_
-}
+    }*/

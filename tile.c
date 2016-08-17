@@ -1,6 +1,6 @@
 #include "tile.h"
 
-SDL_Surface *choosetile(int type)
+SDL_Surface *Tile_Choose(int type)
 {
   SDL_Surface *sur = NULL;
   

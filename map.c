@@ -1,6 +1,6 @@
 #include "map.h"
 
-void drawmap(int x, int y)
+void Map_Draw(int x, int y)
 {
   SDL_Surface *sur = NULL;
   SDL_Rect rect, r0;
@@ -40,7 +40,7 @@ void drawmap(int x, int y)
   SDL_FreeSurface(sur);
 }
 
-void loadmap(char *map_name)
+void Map_Load(char *map_name)
 {
   FILE *fp;
 

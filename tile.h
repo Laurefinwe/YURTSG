@@ -4,12 +4,12 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 
-struct tile {
+struct Tile_Struct {
   int x;
   int y;
   int type;
 };
 
-SDL_Surface *choosetile(int ltype);
+SDL_Surface *Tile_Choose(int type);
 
 #endif
