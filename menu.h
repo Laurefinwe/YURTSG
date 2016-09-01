@@ -3,10 +3,10 @@
 
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
-#include "point.h"
+#include "misc.h"
 
 extern SDL_Surface *screen;
-void chooseResolution(struct point *resolution);
-SDL_Surface *chooseMenuImage(struct point *resolution);
+void Menu_Resolution(point *resolution);
+SDL_Surface *Menu_ChooseBackground(point *resolution);
 
 #endif

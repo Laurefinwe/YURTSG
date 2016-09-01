@@ -1,6 +1,6 @@
 #include "init.h"
 
-void loadResolution(struct point *resolution)
+void Init_LoadResolution(point *resolution)
 {
   FILE *fp;
   const char *path = "config/config";
@@ -14,16 +14,17 @@ void loadResolution(struct point *resolution)
       if ((fp = fopen(path, "w+")) != NULL)
 	{
 	  resolution->x = resolution->y = 0;
-	  chooseResolution(resolution);
+	  Menu_Resolution(resolution);
 	  fprintf(fp, "resolution: %dx%d\n", resolution->x, resolution->y);
+	  fclose(fp);
 	} else printf("Error while trying to read/write to %s\n", path);
     }
 }
 
 
-void init(char *map_name)
+void Init_Main(char *map_name)
 {
-  struct point *resolution = malloc(sizeof (struct point *));
+  point *resolution = malloc(sizeof (point));
   
   if (map_name == NULL)
     exit(1);
@@ -45,11 +46,11 @@ void init(char *map_name)
 
   screen = SDL_SetVideoMode(640, 480, 0, SDL_ANYFORMAT | SDL_DOUBLEBUF);
 
-  loadResolution(resolution);
+  Init_LoadResolution(resolution);
   
   screen = SDL_SetVideoMode(resolution->x, resolution->y, 0, SDL_FULLSCREEN | SDL_DOUBLEBUF);
   //atexit(SDL_FreeSurfacescreen);
   
-  loadmap(map_name);
-  drawmap(0, 0);
+  Map_Load(map_name);
+  Map_Draw(0, 0);
 }

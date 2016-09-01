@@ -1,6 +1,6 @@
 #include "menu.h"
 
-SDL_Surface *chooseMenuImage(struct point *resolution)
+SDL_Surface *Menu_ChooseBackground(point *resolution)
 {
   SDL_Surface *sur;
   switch (resolution->x)
@@ -33,7 +33,7 @@ SDL_Surface *chooseMenuImage(struct point *resolution)
       
 }
 
-void chooseResolution(struct point *resolution)
+void Menu_Resolution(point *resolution)
 {
   int quit = 0;
   SDL_Rect r0, rect[4];

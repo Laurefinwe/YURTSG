@@ -1,9 +1,12 @@
 #include "loop.h"
 
-void loop()
+void Loop_Main()
 {
-  mouse_pos = malloc(sizeof (struct point));
+  building *building;
+  bool build = false;
+  
   map_iterator.x = map_iterator.y = 0;
+  Build_Init(building, "graphics/buildings/roman_house.png");
   for (;;)
     {
       if (SDL_PollEvent(&e) == 0)
@@ -21,25 +24,30 @@ void loop()
 	      switch (e.key.keysym.sym)
 		{
 		case SDLK_UP:
-		  drawmap(map_iterator.x, map_iterator.y += 25);
+		  Map_Draw(map_iterator.x, map_iterator.y += 25);
 		  break;
 		case SDLK_DOWN:
-		  drawmap(map_iterator.x, map_iterator.y -= 25);
+		  Map_Draw(map_iterator.x, map_iterator.y -= 25);
 		  break;
 		case SDLK_RIGHT:
-		  drawmap(map_iterator.x -= 25, map_iterator.y);
+		  Map_Draw(map_iterator.x -= 25, map_iterator.y);
 		  break;
 		case SDLK_LEFT:
-		  drawmap(map_iterator.x += 25, map_iterator.y);
+		  Map_Draw(map_iterator.x += 25, map_iterator.y);
 		  break;
 		case SDLK_ESCAPE:
 		  exit(1);
+
+		case SDLK_b:
+		  build = true;
+		  break;
 		}
 	      
 	    case SDL_MOUSEMOTION:
-	      if (mouse_pos != NULL)
-		findMousexy(mouse_pos, e);
-	      break;
+	      if (build == true)
+		{
+		  Build_Set(&e, screen, building);
+		}
 
 	      //case SDL_MOUSEBUTTONDOWN:
 	      

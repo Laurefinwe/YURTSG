@@ -2,10 +2,10 @@
 
 int main(int argc, char *argv[])
 {
-  init(argv[1]);
+  Init_Main(argv[1]);
 
-  loop();
+  Loop_Main();
 
-  finit();
+  Finit_Main();
   return 0;
 }

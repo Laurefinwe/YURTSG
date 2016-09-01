@@ -1,6 +1,6 @@
 #include "finit.h"
 
-void finit()
+void Finit_Main()
 {
   free(tiles);
   SDL_FreeSurface(screen);

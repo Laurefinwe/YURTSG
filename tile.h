@@ -8,7 +8,9 @@ struct Tile_Struct {
   int x;
   int y;
   int type;
-};
+} *tiles;
+
+typedef struct Tile_Struct tile;
 
 SDL_Surface *Tile_Choose(int type);
 

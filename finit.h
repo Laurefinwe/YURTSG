@@ -5,9 +5,9 @@
 #include "tile.h"
 #include "main.h"
 
-extern struct tile *tiles;
+extern tile *tiles;
 extern SDL_Surface *screen;
 
-void finit();
+void Finit_Main();
 
 #endif

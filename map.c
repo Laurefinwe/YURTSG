@@ -11,7 +11,10 @@ void Map_Draw(int x, int y)
   r0.w = rect.w = tile_width;
   r0.h = rect.h = tile_height;
 
-  SDL_FillRect(screen, NULL, 0x000000);
+  if (screen == NULL)
+    fprintf(stderr, "NULL!");
+
+  SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 0, 0, 0));
   
   for (int i = 0; i < tile_cols; i++)
       for (int j = 0; j < tile_rows; j++)
@@ -31,7 +34,7 @@ void Map_Draw(int x, int y)
 	  tiles[c].x = rect.x;
 	  tiles[c].y = rect.y;
 		
-	  sur = choosetile(tiles[c].type);
+	  sur = Tile_Choose(tiles[c].type);
 	  
 	  SDL_BlitSurface(sur, &r0, screen, &rect);
 	  c++;
@@ -47,7 +50,7 @@ void Map_Load(char *map_name)
   fp = fopen(map_name, "r");
 
   fscanf(fp, "%d;", &tile_count);
-  tiles = malloc(tile_count * sizeof (struct tile));
+  tiles = malloc(tile_count * sizeof (tile));
   
   fscanf(fp, "%d;%d;", &tile_rows, &tile_cols);
   fscanf(fp, "%d;%d;", &tile_width, &tile_height);
