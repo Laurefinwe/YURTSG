@@ -14,6 +14,7 @@ void Build_Set(SDL_Event *e, SDL_Surface *screen, building *building);
 
 SDL_Event e;
 
+extern int tile_width, tile_height;
 extern point *mouse_pos;
 point map_iterator;
 

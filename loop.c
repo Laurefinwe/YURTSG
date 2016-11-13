@@ -6,11 +6,18 @@ void Loop_Main()
   bool build = false;
   
   map_iterator.x = map_iterator.y = 0;
-  Build_Init(building, "graphics/buildings/roman_house.png");
+  building = malloc(sizeof (union building));
+  building->house = malloc(sizeof (struct building_house));
+  building->house->sur = IMG_Load("graphics/buildings/roman_house.png");
+  building->house->set = false;
+
+  //Build_Init(building, "graphics/buildings/roman_house.png");
+  //  SDL_BlitSurface(building->house->sur, 0, screen, 0);
   for (;;)
     {
       if (SDL_PollEvent(&e) == 0)
 	{
+	  SDL_BlitSurface(NULL, 0, screen, 0);
       	  SDL_Flip(screen);
 	} else
 	{
@@ -49,8 +56,13 @@ void Loop_Main()
 		  Build_Set(&e, screen, building);
 		}
 
-	      //case SDL_MOUSEBUTTONDOWN:
-	      
+	      /*    case SDL_MOUSEBUTTONDOWN:
+	      if (build == true)
+		{
+		  Build_Build(&e, building);
+		  build = false;
+		}
+	      */
 	    }
 	}
     }

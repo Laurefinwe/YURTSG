@@ -1,14 +1,17 @@
 #ifndef BUILD_H
 #define BUILD_H
 
+#include <stdbool.h>
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
+#include "misc.h"
 
 struct building_house
 {
   Uint8 type;
   Uint16 x, y;
   Uint16 w, h;
+  bool set;
   SDL_Surface *sur;
   Uint8 population, max_population;
 };
