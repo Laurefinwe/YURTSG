@@ -6,10 +6,7 @@ void Loop_Main()
   bool build = false;
   
   map_iterator.x = map_iterator.y = 0;
-  building = malloc(sizeof (union building));
-  building->house = malloc(sizeof (struct building_house));
-  building->house->sur = IMG_Load("graphics/buildings/roman_house.png");
-  building->house->set = false;
+  building = Build_Init("graphics/buildings/roman_house.png");
 
   //Build_Init(building, "graphics/buildings/roman_house.png");
   //  SDL_BlitSurface(building->house->sur, 0, screen, 0);

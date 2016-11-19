@@ -5,6 +5,7 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include "misc.h"
+#include "map.h"
 
 struct building_house
 {
@@ -24,7 +25,8 @@ union building
 
 typedef union building building;
 
-void Build_Init(building *building, char *path);
+extern int tile_width, tile_height;
+building *Build_Init(char *path);
 void Build_Set(SDL_Event *e, SDL_Surface *screen, building *building);
 void Build_Build(SDL_Event *e, building *building);
 

@@ -1,10 +1,13 @@
 #include "build.h"
 
-void Build_Init(building *building, char *path)
+building *Build_Init(char *path)
 {
+  building *building;
   building = malloc(sizeof (union building));
   building->house = malloc(sizeof (struct building_house));
   building->house->sur = IMG_Load(path);
+  building->house->set = false;
+  return building;
 }
 
 void Build_Set(SDL_Event *e, SDL_Surface *screen, building *building)

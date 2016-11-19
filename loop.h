@@ -9,7 +9,7 @@
 
 extern SDL_Surface *screen;
 void Map_Draw(int x, int y);
-void Build_Init(building *building, char *path);
+building *Build_Init(char *path);
 void Build_Set(SDL_Event *e, SDL_Surface *screen, building *building);
 
 SDL_Event e;
